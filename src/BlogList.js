@@ -1,5 +1,5 @@
-const BlogList = ({blogs, title}) => {
-
+const BlogList = ({blogs, title, handleDelete}) => {
+  // we do not directly edit data in here, rather at Home where states are managed
   return ( 
     <div className="blog-list">
       <h2>{title}</h2>
@@ -7,6 +7,7 @@ const BlogList = ({blogs, title}) => {
 				<div className="blog-preview" key={blog.id}>
 					<h2>{blog.title}</h2>
 					<p>By {blog.author}</p>
+          <button onClick={() => handleDelete(blog.id)}>Delete blog</button>
 				</div>
 			)) }
     </div>
