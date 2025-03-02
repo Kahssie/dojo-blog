@@ -5,7 +5,7 @@ import BlogList from "./BlogList";
 
 const Home = () => {
 	const [blogs, setBlogs] = useState(null);
-
+	const [isPending, setIsPending] = useState(true);
 
 
 	const [name, setName] = useState('Ralph');
@@ -18,11 +18,13 @@ const Home = () => {
 			.then((data) => {
 				console.log(data);
 				setBlogs(data);
+				setIsPending(false);
 			})
 	}, []); // empty dependency array only runs once on the first render, or add any state values that should trigger useeffect when their state changes
 
 	return (
 		<div className="home">
+			{ isPending && <div>Loading...</div>}
 			{blogs && <BlogList blogs={blogs} title="All Blogs✨"/>}
 			<button onClick={() => setName('Luigi')}>Change Name</button>
 		</div>
