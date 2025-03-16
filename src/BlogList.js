@@ -10,7 +10,6 @@ const BlogList = ({ blogs, title }) => {
           <Link to={ `/blogs/${blog.id}` }>
 					<h2>{blog.title}</h2>
 					<p>By {blog.author}</p>
-          <button >Delete blog</button>
           </Link>
 				</div>
 			)) }
